@@ -5,14 +5,50 @@
     <meta charset="UTF-8">
     <title>N x N グリッド</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome アイコンライブラリのリンク -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
     <div class="controls">
-        <label for="grid-size">グリッドサイズ (N): </label>
-        <input type="number" id="grid-size" min="1" max="100" value="15">
-        <button onclick="createGrid()">グリッド生成</button>
-        <button onclick="randomizeGrid()">ランダム生成</button>
+        <div class="grid-settings">
+            <label for="grid-size">グリッドサイズ: </label>
+            <input type="number" id="grid-size" min="1" max="100" value="15">
+            <button onclick="createGrid()">
+                <i class="fas fa-th"></i> 生成
+            </button>
+        </div>
+
+        <div class="actions">
+            <!-- <button onclick="randomizeGrid()">
+                <i class="fas fa-random"></i> ランダム生成
+            </button> -->
+            <button onclick="exportGrid()">
+                <i class="fas fa-download"></i> JSONをエクスポート
+            </button>
+            <label class="file-upload">
+                <i class="fas fa-file-import"></i> JSONをインポート
+                <input type="file" id="import-json" accept=".json" onchange="importGrid(event)" hidden>
+            </label>
+            <label class="file-upload">
+                <i class="fas fa-image"></i> 画像をアップロード
+                <input type="file" id="imageUpload" accept="image/*" onchange="uploadImage(event)" hidden>
+            </label>
+        </div>
+        <div class="color-picker">
+            <label for="color-picker">色: </label>
+            <input type="color" id="color-picker" onchange="selectColor(event)">
+        </div>
+        <div class="color-palette">
+            <div class="color-option" style="background-color: #000000;" onclick="setColor('#000000')"></div>
+            <div class="color-option" style="background-color: #ff5733;" onclick="setColor('#ff5733')"></div>
+            <div class="color-option" style="background-color: #ffc300;" onclick="setColor('#ffc300')"></div>
+            <div class="color-option" style="background-color: #28a745;" onclick="setColor('#28a745')"></div>
+            <div class="color-option" style="background-color: #007bff;" onclick="setColor('#007bff')"></div>
+            <div class="color-option" style="background-color: #6c757d;" onclick="setColor('#6c757d')"></div>
+        </div>
+
+        <div class="color-preview" id="color-preview"></div>
     </div>
 
     <div id="grid-container" class="grid-container">
