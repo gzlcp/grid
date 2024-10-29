@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>N x N グリッド</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="controls">
+        <label for="grid-size">グリッドサイズ (N): </label>
+        <input type="number" id="grid-size" min="1" max="100" value="15">
+        <button onclick="createGrid()">グリッド生成</button>
+        <button onclick="randomizeGrid()">ランダム生成</button>
+    </div>
+
+    <div id="grid-container" class="grid-container">
+        <div class="column-counts" id="column-counts"></div>
+        <div id="grid-row">
+            <div class="row-counts" id="row-counts"></div>
+            <div class="canvas-container">
+                <canvas id="grid-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

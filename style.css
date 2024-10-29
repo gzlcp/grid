@@ -1,0 +1,53 @@
+.grid-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.canvas-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+canvas {
+    border: 1px solid black;
+}
+
+.column-counts {
+    display: flex;
+    justify-content: center;
+    margin-left: 40px;
+}
+
+.column-count {
+    width: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.row-counts {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+
+.row-count {
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#grid-row {
+    display: flex;
+    align-items: center;
+}
+
+.controls {
+    margin-bottom: 10px;
+}
